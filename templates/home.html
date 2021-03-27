@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IRIS DATA PREDICTION FLASK</title>
+
+<style>
+body{
+   background: url(https://images5.alphacoders.com/431/431464.jpg);
+   background-size:cover;
+}
+</style>
+
+
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+</head>
+<!-- #6798B3 -->
+<body style="background-color:#D9E4EA;">
+
+<div style="margin-top: 50px; margin-bottom: 50px; font-size: 50px;text-transform: uppercase;">
+                  <center>
+<marquee direction="right" behavior="alternate" style="background:;" >
+<font color="pink"><b>
+Prediction Iris dataset</b>
+</font>
+</marquee>
+	</center>
+	<center class='text-success'><font color="yellow"> <h5>Model Predcition:-<marquee width="15%" direction="right" height="20px"> <font color="red"> Over 97% accuracy</font></marquee></h5></font> </center>
+</div>
+
+
+<div class="container">
+	<form action={{ url_for("predict") }} method="post">
+		<div class="form-group">
+			<center>
+			<input type="text" style="width: 40% !important;" class="form-control " name="sepal length in cm" placeholder="Sepal Length in (CM)" required="true">
+			<hr>
+			<input type="text" style="width: 40% !important;" class="form-control" name="seapal width in cm" placeholder="Sepal Width in (CM)" required="true">
+			<hr>
+			<input type="text" style="width: 40% !important;" class="form-control" name="petal length in cm" placeholder="Petal Length in (CM)" required="true">
+			<hr>
+			<input type="text" style="width: 40% !important;" class="form-control" name="petal width in cm" placeholder="Petal Width in (CM)" required="true">
+			<hr>
+			<button style="width: 30%; height: 50px;" type="submit" value="predict" class="btn btn-success">Predict</button>
+			</center>
+		</div>
+	</form>
+
+	<br>
+<div class="container">
+	<center>
+<font color="yellow">
+		<!-- {{ prediction_text }} -->
+		{% if prediction_text == 0 %}
+		<h2>Iris-setosa</h2>
+		
+		{% elif prediction_text == 1 %}
+		<h2>Iris Versicolour</h2>
+		
+		{% elif prediction_text == 2 %}
+		<h2>Iris Virginica</h2>
+		
+		{% endif %}
+</font>
+	</center>
+	
+</div>
+
+<footer style="margin-top: 50px;">
+	<CENTER>©FLOWER</CENTER>
+</footer>
+</div>
+
+</body>
+</html>
